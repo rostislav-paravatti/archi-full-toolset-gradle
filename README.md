@@ -52,3 +52,7 @@ gradle clean build -Dskip.tests  -Dorg.gradle.java.home=/usr/lib/jvm/java-17-ope
  * Archi -consoleLog -nosplash -application com.archimatetool.commandline.app
    --loadModel "/pathToModel/model.archimate"
    --exportToCSV "/pathToOutputFolder"
+
+ * CArchi.exe -consoleLog -nosplash -application com.archimatetool.commandline.app --grafico.import "C:\Users\user\REPOS\ARCHIMATE_TEST_ROOT\test2"  --createEmptyModel --saveModel "C:\Users\user\REPOS\ARCHIMATE_TEST_ROOT\test2.archimate" --pause
+
+ * Archi.exe -consoleLog -nosplash -application com.archimatetool.commandline.app --loadModel "C:\Users\user\REPOS\ARCHIMATE_TEST_ROOT\test1.archimate"  --grafico.export "C:\Users\user\REPOS\ARCHIMATE_TEST_ROOT" --pause
