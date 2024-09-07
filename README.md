@@ -1,25 +1,54 @@
-archi-grafico-plugin
-====================
+# Prerequirements and statements
 
-### **G**it f**r**iendly **A**rchi **Fi**le **Co**llection
-GRAFICO is a way to persist an ArchiMate model in a bunch of XML files (one file per ArchiMate element or view). The resulting files can then be easily tracked and merge using almost any Version Control System (VCS) or Source Code Management (SCM) solutions like [git](http://git-scm.com). Said differently, this is the basis of a really powerfull model repository for Archi.
+* The best way to clean build - run inside WSL Ubuntu 22.04
+* In clear WSL Ubuntu do 
+    - change apt sources lists to your nexus or jfrog server
+    - apt update && apt install mc openjdk-17-jdk openjdk-17-jre openjdk-11-jdk openjdk-11-jre wget unzip maven
+    - mount your REPOS folder to some directory inside WSL, as example run in user home folder
+       
+       ```ln -s /mnt/d/REPOS REPOS```
+    - set the JAVA_HOME environment variable to ```/usr/lib/jvm/java-11-openjdk-amd64/```
+    - install && update the kotlin & groovy packages & gradle - install by gradle bin archive - 
 
-#### How to use it?
-Important remark: this plugin is still young, so be prepared to find some bugs. You should also be aware that generated XML will certainly change a little soon to be even easier to update manually in case of conflict.
+       ```gradle-8.10-all.zip and add foler which placed extracted gradle to /etc/environment variable PATH to the end```
+    - set in maven configuration your proxy if you have a outgoing squid or other proxy server
+    - update gradle to latest (tested at 8.10), after running ```gradle --version``` you must see:
 
-Still reading and not afraid? So just [download the plugin](https://github.com/archi-contribs/archi-grafico-plugin/releases) and put it in the 'plugin/' subdirectory of Archi. You should now see two new menu entries "File > Export > Model as GRAFICO..." and "File > Import > Model from GRAFICO...". By itself, the plugin doesn't do any versioning, it's up to you to choose the best tool for you needs (but I highly recommend git).
+```
+	------------------------------------------------------------
+	Gradle 8.10
+	------------------------------------------------------------
 
-#### Credit
-The root idea came from [some discussions](https://groups.google.com/forum/?hl=en#!searchin/archi-dev/git/archi-dev/8sCoD6Ctj-c/MnqM_luHJRAJ) with Árpád Magosányi and Michael Tapp on the old Archi forum.
+	Build time:    2024-08-14 11:07:45 UTC
+	Revision:      fef2edbed8af1022cefaf44d4c0514c5f89d7b78
 
-#### License
-Some will cry, but we decided to not use a real OpenSource license for this plugin: we choose the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International](http://creativecommons.org/licenses/by-nc-nd/4.0/). Why? Simply because despite all the work done on Archi, very few people decided to [donate](http://www.archimatetool.com/#donate). Model repository is the #1 request and we think that this plugin is the basis for such feature and could exist in a (commercial) enhanced version in the future.
+	Kotlin:        1.9.24
+	Groovy:        3.0.22
+	Ant:           Apache Ant(TM) version 1.10.14 compiled on August 16 2023
+	Launcher JVM:  11.0.24 (Ubuntu 11.0.24+8-post-Ubuntu-1ubuntu322.04)
+	Daemon JVM:    /usr/lib/jvm/java-11-openjdk-amd64 (no JDK specified, using current Java home)
+	OS:            Linux 5.15.153.1-microsoft-standard-WSL2+ amd64
+```
 
-So basically:
- * You are free to copy and redistribute this plugin in any medium or format.
- * You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests we endorse you or your use.
- * You can't use this plugin for commercial purposes.
- * If you remix, transform, or build upon this plugin, you can't distribute the modified material.
+    - run the ./BUILDER.sh
 
-#### Use-cases
-This plugin can be used for several purposes (merging models, keeping changelog/history of model edits, multi-user repository...). Have a look on [the dedicated wiki page](https://github.com/archi-contribs/archi-grafico-plugin/wiki/Use-Cases).
+# Build all by script
+
+* Simply run the ./BUILDER.sh
+* After build all compiled components placed to ```ALL_BUILDED_JARS``` folder
+* After build all shared dependencies components placed to ```SHARED_JAR_LIBS``` folder
+# Build gradle all
+
+gradle clean build -Dskip.tests  -Dorg.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64/
+
+
+
+# Availiable plugins 
+
+ * Archi -consoleLog -nosplash -application com.archimatetool.commandline.app
+   --createEmptyModel
+   --importFromCSV "/elements.csv"
+
+ * Archi -consoleLog -nosplash -application com.archimatetool.commandline.app
+   --loadModel "/pathToModel/model.archimate"
+   --exportToCSV "/pathToOutputFolder"

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GRAFICO Import and Export Plugin
+Bundle-SymbolicName: com.archimatetool.grafico;singleton:=true
+Bundle-Version: 0.6
+Bundle-Vendor: Jean-Baptiste Sarrodie / Quentin Varquet / Phil Beauvoir
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.archimatetool.editor,
+ org.eclipse.emf.common
+Export-Package: com.archimatetool.grafico

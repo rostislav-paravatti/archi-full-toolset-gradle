@@ -1,0 +1,1 @@
+/home/wsl-user/AARCHI_CO/archi-grafico-plugin-gradle/com.archimatetool.jdom/build/classes/java/main/com/archimatetool/jdom/JDOMUtils.class

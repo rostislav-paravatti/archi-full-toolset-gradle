@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <name>com.archimatetool.editor</name>
+
+    <parent>
+        <groupId>com.archimatetool</groupId>
+        <artifactId>archi</artifactId>
+        <version>${revision}</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+    <description>AARCHI CUSTOM BUILD</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-p2-resolver</artifactId>
+            <version>3.0.5</version>
+        </dependency>
+        <!-- Другие зависимости -->
+    </dependencies> 
+    <repositories>
+        <repository>
+            <id>eclipse-releases</id>
+            <url>https://repo.eclipse.org/content/repositories/releases/</url>
+        </repository>
+    </repositories> -->
+
+    <groupId>com.archimatetool</groupId>
+    <artifactId>com.archimatetool.editor</artifactId>
+    <version>${revision}</version>
+
+    <packaging>jar</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version> <!-- Укажите актуальную версию -->
+                <configuration>
+                    <source>17</source> <!-- Версия Java для исходников -->
+                    <target>17</target> <!-- Версия Java для скомпилированных классов -->
+                    <sourceDirectory>src/com/archimatetool/editor</sourceDirectory> <!-- Укажите путь к вашим исходникам -->
+                    <outputDirectory>${project.build.directory}/classes</outputDirectory> <!-- Укажите каталог для скомпилированных классов -->
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-maven-plugin</artifactId>
+                <version>4.0.3</version>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <mainClass>com.archimatetool.editor.Application</mainClass> <!-- Укажите ваш основной класс -->
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}</directory>
+                                    <includes>
+                                        <include>about.mappings</include>
+                                        <include>plugin_customization.ini</include>
+                                        <include>splash.bmp</include>
+                                        <include>LICENSE.txt</include>
+                                        <include>plugin.properties</include>
+                                        <include>plugin.xml</include>
+                                        <include>logging.properties</include>
+                                        <include>img/**</include>
+                                        <include>META-INF/**</include>
+                                        <include>intro/**</include>
+                                        <include>schema/**</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+        <finalName>com.archimatetool.editor</finalName>
+    </build>
+</project>

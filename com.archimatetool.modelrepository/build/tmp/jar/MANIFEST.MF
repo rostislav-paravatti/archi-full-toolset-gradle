@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: coArchi 2
+Bundle-SymbolicName: com.archimatetool.modelrepository;singleton:=true
+Bundle-Localization: plugin
+Bundle-Version: 0.7.0.qualifier
+Bundle-Vendor: Archi
+Require-Bundle: org.eclipse.help.ui,com.archimatetool.editor,com.archima
+ tetool.jdom,org.eclipse.emf.compare,org.eclipse.jgit,org.eclipse.jgit.s
+ sh.apache
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Eclipse-BundleShape: dir
+Bundle-Activator: com.archimatetool.modelrepository.ModelRepositoryPlugi
+ n
+Export-Package: com.archimatetool.modelrepository,com.archimatetool.mode
+ lrepository.actions,com.archimatetool.modelrepository.authentication,co
+ m.archimatetool.modelrepository.dialogs,com.archimatetool.modelreposito
+ ry.preferences,com.archimatetool.modelrepository.propertysections,com.a
+ rchimatetool.modelrepository.repository,com.archimatetool.modelreposito
+ ry.treemodel,com.archimatetool.modelrepository.views.repositories
+Automatic-Module-Name: com.archimatetool.modelrepository
+Bundle-ClassPath: ., com/archimatetool/modelrepository
+Embed-Dependency: *
+Import-Package: com.google.common.base,org.eclipse.equinox.security.stor
+ age
+

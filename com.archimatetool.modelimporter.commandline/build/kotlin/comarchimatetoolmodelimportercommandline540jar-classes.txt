@@ -1,0 +1,1 @@
+/home/wsl-user/AARCHI_CO/archi-grafico-plugin-gradle/com.archimatetool.modelimporter.commandline/build/classes/java/main/com/archimatetool/modelimporter/commandline/ImportModelProvider.class:/home/wsl-user/AARCHI_CO/archi-grafico-plugin-gradle/com.archimatetool.modelimporter.commandline/build/classes/java/main/com/archimatetool/modelimporter/commandline/Messages.class

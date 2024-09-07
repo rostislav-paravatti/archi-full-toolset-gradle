@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <name>com.archimatetool.modelrepository</name>
+
+    <parent>
+        <groupId>com.archimatetool</groupId>
+        <artifactId>archi</artifactId>
+        <version>${revision}</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+    <groupId>com.archimatetool.modelrepository</groupId>
+    <artifactId>com.archimatetool.modelrepository</artifactId>
+    <version>${revision}</version>
+
+    <packaging>jar</packaging>    
+    
+    <description>A Maven project generated from MANIFEST.MF</description>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.archimatetool.modelrepository</groupId>
+                <artifactId>com.archimatetool.modelrepository</artifactId>
+                <version>${version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.archimatetool.modelrepository.ModelRepositoryPlugin</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}</directory>
+                                    <includes>
+                                        <include>LICENSE.txt</include>
+                                        <include>plugin.properties</include>
+                                        <include>plugin.xml</include>
+                                        <include>logging.properties</include>
+                                        <include>img/**</include>
+                                        <include>META-INF/**</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+       </plugins>
+    </build>
+</project>

@@ -1,0 +1,1 @@
+/home/wsl-user/AARCHI_CO/archi-grafico-plugin-gradle/com.archimatetool.widgets/build/classes/java/main/com/archimatetool/widgets/ArchiWidgetsPlugin.class

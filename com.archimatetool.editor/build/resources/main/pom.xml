@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <name>com.archimatetool.editor</name>
+
+    <parent>
+        <groupId>com.archimatetool</groupId>
+        <artifactId>com.archimatetool</artifactId>
+        <version>${revision}</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+<!--
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-p2-resolver</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <!- Другие зависимости ->
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>eclipse-releases</id>
+            <url>https://repo.eclipse.org/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+-->
+
+    <groupId>com.archimatetool</groupId>
+    <artifactId>com.archimatetool.editor</artifactId>
+    <version>${revision}</version>
+
+    <packaging>jar</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-maven-plugin</artifactId>
+                <version>2.7.0</version>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+        <finalName>com.archimatetool.editor</finalName>
+    </build>
+</project>
