@@ -56,3 +56,13 @@ gradle clean build -Dskip.tests  -Dorg.gradle.java.home=/usr/lib/jvm/java-17-ope
  * CArchi.exe -consoleLog -nosplash -application com.archimatetool.commandline.app --grafico.import "C:\Users\user\REPOS\ARCHIMATE_TEST_ROOT\test2"  --createEmptyModel --saveModel "C:\Users\user\REPOS\ARCHIMATE_TEST_ROOT\test2.archimate" --pause
 
  * Archi.exe -consoleLog -nosplash -application com.archimatetool.commandline.app --loadModel "C:\Users\user\REPOS\ARCHIMATE_TEST_ROOT\test1.archimate"  --grafico.export "C:\Users\user\REPOS\ARCHIMATE_TEST_ROOT" --pause
+
+# Adding new components flow
+
+https://github.com/rostislav-paravatti/archi-full-toolset-gradle - просто компонент подкладываешь
+
+1. Place the your component to component dir, copy the some build.gradle.kts from other component - https://github.com/rostislav-paravatti/archi-full-toolset-gradle/blob/main/com.archimatetool.modelrepository/build.gradle.kts - change all applicable for new component. Check requirements from META-INF/MANIFEST.mf included in build.gradle.kts, add if no exists.
+2. Make the component directory structure and reconstruct build flow - make src/main/resources and place resources to them.
+3. Check the libs (jars) which may be needed to include for build in plugin component.
+4. In root - https://github.com/rostislav-paravatti/archi-full-toolset-gradle/blob/main/settings.gradle.kts place your component to include for build.
+5. In root - add your component to main build flow if it applicable for extra configuration by you new component - https://github.com/rostislav-paravatti/archi-full-toolset-gradle/blob/main/build.gradle.kts
